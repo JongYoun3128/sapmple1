@@ -1,0 +1,882 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Particles Animation */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #d0d0d0;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particleFloat 8s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 6s;
+}
+
+.particle:nth-child(2) {
+    left: 30%;
+    animation-delay: -1.5s;
+    animation-duration: 9s;
+}
+
+.particle:nth-child(3) {
+    left: 50%;
+    animation-delay: -3s;
+    animation-duration: 7s;
+}
+
+.particle:nth-child(4) {
+    left: 70%;
+    animation-delay: -4.5s;
+    animation-duration: 8s;
+}
+
+.particle:nth-child(5) {
+    left: 90%;
+    animation-delay: -6s;
+    animation-duration: 10s;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Header */
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0 80px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: rotateZ(90deg);
+    transition: all 1s ease;
+}
+
+.hero.visible {
+    opacity: 1;
+    transform: rotateZ(0deg);
+}
+
+.hero-title {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+}
+
+.hero-text {
+    font-size: 17px;
+    color: #666;
+    font-weight: 400;
+}
+
+/* Banner Section */
+.banner-section {
+    background-color: #1a1a1a;
+    padding: 18px 0;
+    overflow: hidden;
+}
+
+.banner-track {
+    display: flex;
+    animation: bannerScroll 12s linear infinite;
+}
+
+.banner-item {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 0 18px;
+}
+
+.banner-divider {
+    color: #666;
+    padding: 0 8px;
+}
+
+@keyframes bannerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Sections */
+section {
+    padding: 70px 0;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: rotateY(90deg);
+    transition: all 0.6s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+/* 패키지 섹션은 바로 보이게 */
+.packages-section {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+/* About Section - Benefits */
+.about-section {
+    background-color: #f8f8f8;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.benefit-card {
+    background-color: #fff;
+    padding: 30px 25px;
+    border: 2px solid #e5e5e5;
+    transition: all 0.3s;
+}
+
+.benefit-card:hover {
+    border-color: #1a1a1a;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.benefit-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.benefit-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: #999;
+    letter-spacing: 1px;
+}
+
+.benefit-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.benefit-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Workflow Section */
+.workflow-section {
+    background-color: #fff;
+}
+
+.workflow-steps {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.workflow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.workflow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 70px;
+    width: 2px;
+    height: calc(100% - 15px);
+    background-color: #e5e5e5;
+}
+
+.step-circle {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icon {
+    font-size: 24px;
+}
+
+.step-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.step-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.step-info p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Packages Section */
+.packages-section {
+    background-color: #f8f8f8;
+}
+
+.package-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.package-item {
+    background-color: #fff;
+    padding: 40px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.package-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.02);
+    transition: right 0.5s ease;
+}
+
+.package-item:hover::after {
+    right: 0;
+}
+
+.package-item:hover {
+    transform: translateX(10px);
+    border-color: #1a1a1a;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.package-item.highlight {
+    border-color: #1a1a1a;
+    border-width: 3px;
+}
+
+.highlight-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.package-icon {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #1a1a1a;
+    margin-bottom: 18px;
+    padding: 6px 0;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+.package-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+
+.package-info {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.info-label {
+    font-size: 12px;
+    color: #999;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.package-includes {
+    margin-bottom: 25px;
+}
+
+.package-includes h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.package-includes ul {
+    list-style: none;
+}
+
+.package-includes li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+    font-size: 14px;
+}
+
+.package-includes li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.package-recommendation {
+    padding-top: 22px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.package-recommendation h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.package-recommendation p {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.8;
+}
+
+/* Monthly Section */
+.monthly-section {
+    background-color: #fff;
+}
+
+.monthly-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.monthly-left h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+
+.monthly-features {
+    list-style: none;
+}
+
+.monthly-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.monthly-features li:last-child {
+    border-bottom: none;
+}
+
+.feature-icon {
+    font-size: 22px;
+    width: 35px;
+    text-align: center;
+}
+
+.feature-text {
+    font-size: 15px;
+    color: #555;
+}
+
+.monthly-right {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.pricing-card {
+    background-color: #f8f8f8;
+    padding: 25px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.pricing-card:hover {
+    background-color: #fff;
+    border-color: #1a1a1a;
+    transform: scale(1.02);
+}
+
+.pricing-header {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.pricing-amount {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.contract-info {
+    text-align: center;
+    padding: 22px;
+    background-color: #f8f8f8;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+.contract-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Options Section */
+.options-section {
+    background-color: #f8f8f8;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.option-card {
+    background-color: #fff;
+    padding: 25px;
+    border: 2px solid #e5e5e5;
+    border-radius: 6px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.option-card:hover {
+    border-color: #1a1a1a;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.option-title {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.option-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Metrics Section */
+.metrics-section {
+    background-color: #1a1a1a;
+    padding: 70px 0;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.metric-item {
+    color: #fff;
+}
+
+.metric-value {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #999;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #fff;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    padding: 22px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.faq-q {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-right: 12px;
+}
+
+.faq-text {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.faq-toggle {
+    font-size: 22px;
+    color: #999;
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+
+.faq-answer p {
+    padding: 0 0 22px 30px;
+    color: #666;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .monthly-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .section-title {
+        font-size: 26px;
+    }
+    
+    .section-subtitle {
+        font-size: 14px;
+        margin-bottom: 35px;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .benefit-card {
+        padding: 25px 20px;
+    }
+    
+    .benefit-header h3 {
+        font-size: 18px;
+    }
+    
+    .benefit-card p {
+        font-size: 13px;
+    }
+    
+    .package-item {
+        padding: 28px 22px;
+    }
+    
+    .package-name {
+        font-size: 20px;
+    }
+    
+    .package-info {
+        flex-direction: column;
+        gap: 18px;
+    }
+    
+    .info-value {
+        font-size: 22px;
+    }
+    
+    .workflow-step {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .step-circle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .step-icon {
+        font-size: 20px;
+    }
+    
+    .step-info h3 {
+        font-size: 18px;
+    }
+    
+    .workflow-step:not(:last-child)::after {
+        display: none;
+    }
+    
+    .options-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .option-card {
+        padding: 20px 15px;
+    }
+    
+    .option-title {
+        font-size: 13px;
+    }
+    
+    .option-price {
+        font-size: 18px;
+    }
+    
+    .metric-value {
+        font-size: 36px;
+    }
+    
+    .metric-label {
+        font-size: 12px;
+    }
+    
+    .faq-text {
+        font-size: 14px;
+    }
+    
+    .faq-answer p {
+        font-size: 13px;
+        padding-left: 25px;
+    }
+    
+    section {
+        padding: 55px 0;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .banner-item {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 70px 0 60px;
+    }
+    
+    .hero-title {
+        font-size: 26px;
+    }
+    
+    .hero-text {
+        font-size: 15px;
+    }
+    
+    .logo {
+        font-size: 17px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    .options-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .metric-value {
+        font-size: 32px;
+    }
+    
+    .pricing-amount {
+        font-size: 24px;
+    }
+}
