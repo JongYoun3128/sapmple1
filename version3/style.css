@@ -980,4 +980,272 @@ section.visible {
         height: 70px;
         padding: 12px;
     }
+
+    .thumbnail-card {
+        width: 200px;
+        margin: 0 5px;
+    }
+
+    .thumbnail-info {
+        padding: 12px;
+    }
+
+    .thumbnail-info h4 {
+        font-size: 14px;
+    }
+
+    .thumbnail-info p {
+        font-size: 12px;
+    }
+
+    .play-button {
+        width: 45px;
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+    }
+
+    .modal-close {
+        top: -35px;
+        font-size: 32px;
+    }
+}
+
+/* 유튜브 썸네일 갤러리 */
+.youtube-gallery-section {
+    background-color: #fff;
+    padding: 60px 0;
+    overflow: hidden;
+    opacity: 1;
+    transform: rotateX(0deg);
+}
+
+.youtube-gallery-section .section-title {
+    color: #333;
+}
+
+.youtube-gallery-section .section-subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.gallery-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+}
+
+.gallery-row {
+    display: flex;
+    gap: 0;
+}
+
+.thumbnail-card {
+    flex-shrink: 0;
+    width: 320px;
+    margin: 0 10px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.thumbnail-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail-image {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.thumbnail-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail-card:hover .thumbnail-image img {
+    transform: scale(1.05);
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 4px;
+    transition: all 0.3s ease;
+}
+
+.thumbnail-card:hover .play-button {
+    background-color: rgba(255, 0, 0, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.thumbnail-info {
+    padding: 15px;
+    background-color: #fff;
+}
+
+.thumbnail-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.thumbnail-info p {
+    font-size: 14px;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 유튜브 영상 모달 */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    z-index: 10001;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 36px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    z-index: 10002;
+}
+
+.modal-close:hover {
+    transform: scale(1.2) rotate(90deg);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 992px) {
+    .thumbnail-card {
+        width: 280px;
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .thumbnail-card {
+        width: 240px;
+        margin: 0 7px;
+    }
+
+    .thumbnail-info h4 {
+        font-size: 15px;
+    }
+
+    .thumbnail-info p {
+        font-size: 13px;
+    }
+
+    .play-button {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
 }

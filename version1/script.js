@@ -12,8 +12,8 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// 모든 섹션에 관찰자 적용 (패키지 섹션 제외)
-document.querySelectorAll('section:not(.packages-section)').forEach(section => {
+// 모든 섹션에 관찰자 적용 (패키지 섹션, 유튜브 갤러리 섹션 제외)
+document.querySelectorAll('section:not(.packages-section):not(.youtube-gallery-section)').forEach(section => {
     observer.observe(section);
 });
 
@@ -21,6 +21,12 @@ document.querySelectorAll('section:not(.packages-section)').forEach(section => {
 const packagesSection = document.querySelector('.packages-section');
 if (packagesSection) {
     packagesSection.classList.add('visible');
+}
+
+// 유튜브 갤러리 섹션은 즉시 visible 처리
+const youtubeGallerySection = document.querySelector('.youtube-gallery-section');
+if (youtubeGallerySection) {
+    youtubeGallerySection.classList.add('visible');
 }
 
 // 패키지 카드 호버 효과 강화
@@ -159,9 +165,163 @@ document.querySelectorAll('.process-step').forEach(step => {
     processObserver.observe(step);
 });
 
-// 슬로건 무한 스크롤을 위한 복제
+// 슬로건 무한 스크롤 - JavaScript 방식
 const sloganWrapper = document.querySelector('.slogan-wrapper');
 if (sloganWrapper) {
     const sloganItems = sloganWrapper.innerHTML;
     sloganWrapper.innerHTML = sloganItems + sloganItems + sloganItems;
+    
+    sloganWrapper.style.animation = 'none';
+    let sloganPosition = 0;
+    
+    function animateSlogan() {
+        const firstItem = sloganWrapper.querySelector('.slogan-item');
+        if (!firstItem) return;
+        
+        const itemWidth = firstItem.offsetWidth + parseFloat(window.getComputedStyle(firstItem).marginLeft) + parseFloat(window.getComputedStyle(firstItem).marginRight);
+        const resetPoint = itemWidth * 3; // 원본 3개
+        
+        sloganPosition -= 1; // 왼쪽으로 이동
+        
+        if (Math.abs(sloganPosition) >= resetPoint) {
+            sloganPosition = 0;
+        }
+        
+        sloganWrapper.style.transform = `translateX(${sloganPosition}px)`;
+        requestAnimationFrame(animateSlogan);
+    }
+    
+    animateSlogan();
 }
+
+// 파트너사 로고 무한 스크롤 - JavaScript 방식
+const partnersTrack = document.querySelector('.partners-track');
+if (partnersTrack) {
+    const logos = partnersTrack.innerHTML;
+    partnersTrack.innerHTML = logos + logos + logos;
+    
+    partnersTrack.style.animation = 'none';
+    let partnerPosition = 0;
+    
+    function animatePartners() {
+        const firstLogo = partnersTrack.querySelector('.partner-logo');
+        if (!firstLogo) return;
+        
+        const logoWidth = firstLogo.offsetWidth + parseFloat(window.getComputedStyle(firstLogo).marginLeft) + parseFloat(window.getComputedStyle(firstLogo).marginRight);
+        const resetPoint = logoWidth * 4; // 원본 4개
+        
+        partnerPosition -= 0.5; // 천천히 이동
+        
+        if (Math.abs(partnerPosition) >= resetPoint) {
+            partnerPosition = 0;
+        }
+        
+        partnersTrack.style.transform = `translateX(${partnerPosition}px)`;
+        requestAnimationFrame(animatePartners);
+    }
+    
+    animatePartners();
+}
+
+// 유튜브 갤러리 진짜 무한 루프
+const galleryRows = document.querySelectorAll('.gallery-row');
+galleryRows.forEach(row => {
+    const cards = row.innerHTML;
+    // 3세트 복제
+    row.innerHTML = cards + cards + cards;
+    
+    // CSS 애니메이션 제거하고 JS로 직접 제어
+    row.style.animation = 'none';
+    
+    let position = 0;
+    const speed = row.classList.contains('row-left') ? -1 : 1; // 왼쪽은 -1, 오른쪽은 1
+    
+    function getCardWidth() {
+        const firstCard = row.querySelector('.thumbnail-card');
+        if (firstCard) {
+            const style = window.getComputedStyle(firstCard);
+            const width = firstCard.offsetWidth;
+            const marginLeft = parseFloat(style.marginLeft);
+            const marginRight = parseFloat(style.marginRight);
+            return width + marginLeft + marginRight;
+        }
+        return 340; // 기본값
+    }
+    
+    function animate() {
+        const cardWidth = getCardWidth();
+        const resetPoint = cardWidth * 6; // 원본 6개의 너비
+        
+        position += speed * 1; // 속도 조절 (1픽셀씩)
+        
+        if (speed < 0) {
+            // 왼쪽으로 이동
+            if (Math.abs(position) >= resetPoint) {
+                position = 0;
+            }
+        } else {
+            // 오른쪽으로 이동
+            if (position >= resetPoint) {
+                position = 0;
+            }
+        }
+        
+        row.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+});
+
+// 유튜브 영상 모달 기능
+const videoModal = document.getElementById('videoModal');
+const videoFrame = document.getElementById('videoFrame');
+const modalClose = document.querySelector('.modal-close');
+const modalOverlay = document.querySelector('.modal-overlay');
+
+// 썸네일 카드 클릭 시 모달 열기
+document.addEventListener('click', function(e) {
+    const card = e.target.closest('.thumbnail-card');
+    if (card) {
+        e.preventDefault();
+        const videoId = card.getAttribute('data-video-id');
+        
+        // 유튜브 쇼츠 URL (일반 영상도 가능)
+        const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`;
+        
+        // iframe에 URL 설정
+        videoFrame.src = videoUrl;
+        
+        // 모달 열기
+        videoModal.style.display = 'flex';
+        setTimeout(() => {
+            videoModal.classList.add('active');
+        }, 10);
+        
+        // body 스크롤 방지
+        document.body.style.overflow = 'hidden';
+    }
+});
+
+// 모달 닫기 함수
+function closeVideoModal() {
+    videoModal.classList.remove('active');
+    setTimeout(() => {
+        videoModal.style.display = 'none';
+        videoFrame.src = ''; // 영상 정지
+        document.body.style.overflow = ''; // 스크롤 복원
+    }, 300);
+}
+
+// X 버튼 클릭 시 모달 닫기
+modalClose.addEventListener('click', closeVideoModal);
+
+// 오버레이 클릭 시 모달 닫기
+modalOverlay.addEventListener('click', closeVideoModal);
+
+// ESC 키로 모달 닫기
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+        closeVideoModal();
+    }
+});

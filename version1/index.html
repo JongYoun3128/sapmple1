@@ -89,6 +89,30 @@
                                     alt="렌탈 로고"
                                 />
                             </div>
+                            <div class="partner-logo">
+                                <img
+                                    src="../images/cafe-logo.png"
+                                    alt="카페 로고"
+                                />
+                            </div>
+                            <div class="partner-logo">
+                                <img
+                                    src="../images/interior-logo.png"
+                                    alt="인테리어 로고"
+                                />
+                            </div>
+                            <div class="partner-logo">
+                                <img
+                                    src="../images/zero-logo.png"
+                                    alt="제로 로고"
+                                />
+                            </div>
+                            <div class="partner-logo">
+                                <img
+                                    src="../images/rental-logo1.png"
+                                    alt="렌탈 로고"
+                                />
+                            </div>
                             <!-- 무한루프를 위한 복제 -->
                             <div class="partner-logo">
                                 <img
@@ -137,6 +161,99 @@
                                     src="../images/rental-logo1.png"
                                     alt="렌탈 로고"
                                 />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 유튜브 썸네일 갤러리 -->
+            <section class="youtube-gallery-section">
+                <div class="container">
+                    <p class="section-subtitle">
+                        다양한 업종의 홍보 영상을 만나보세요
+                    </p>
+                </div>
+
+                <div class="gallery-container">
+                    <!-- 첫 번째 행 (왼쪽으로 이동) -->
+                    <div class="gallery-row row-left">
+                        <div class="thumbnail-card" data-video-id="L_jWHffIx5E">
+                            <div class="thumbnail-image">
+                                <img
+                                    src="https://img.youtube.com/vi/L_jWHffIx5E/mqdefault.jpg"
+                                    alt="여성전용 헬스장"
+                                />
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="thumbnail-info">
+                                <h4>여성전용 헬스장</h4>
+                                <p>신곡점</p>
+                            </div>
+                        </div>
+                        <div class="thumbnail-card" data-video-id="jNQXAC9IVRw">
+                            <div class="thumbnail-image">
+                                <img
+                                    src="https://img.youtube.com/vi/jNQXAC9IVRw/mqdefault.jpg"
+                                    alt="세신샵"
+                                />
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="thumbnail-info">
+                                <h4>세신샵</h4>
+                                <p>운정점</p>
+                            </div>
+                        </div>
+                        <div class="thumbnail-card" data-video-id="9bZkp7q19f0">
+                            <div class="thumbnail-image">
+                                <img
+                                    src="https://img.youtube.com/vi/9bZkp7q19f0/mqdefault.jpg"
+                                    alt="메이크업"
+                                />
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="thumbnail-info">
+                                <h4>메이크업</h4>
+                                <p>청담점</p>
+                            </div>
+                        </div>
+                        <div class="thumbnail-card" data-video-id="kJQP7kiw5Fk">
+                            <div class="thumbnail-image">
+                                <img
+                                    src="https://img.youtube.com/vi/kJQP7kiw5Fk/mqdefault.jpg"
+                                    alt="스크린골프"
+                                />
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="thumbnail-info">
+                                <h4>스크린골프</h4>
+                                <p>잠실점</p>
+                            </div>
+                        </div>
+                        <div class="thumbnail-card" data-video-id="CevxZvSJLk8">
+                            <div class="thumbnail-image">
+                                <img
+                                    src="https://img.youtube.com/vi/CevxZvSJLk8/mqdefault.jpg"
+                                    alt="카페"
+                                />
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="thumbnail-info">
+                                <h4>카페</h4>
+                                <p>강남점</p>
+                            </div>
+                        </div>
+                        <div class="thumbnail-card" data-video-id="3JZ_D3ELwOQ">
+                            <div class="thumbnail-image">
+                                <img
+                                    src="https://img.youtube.com/vi/3JZ_D3ELwOQ/mqdefault.jpg"
+                                    alt="레스토랑"
+                                />
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="thumbnail-info">
+                                <h4>레스토랑</h4>
+                                <p>홍대점</p>
                             </div>
                         </div>
                     </div>
@@ -517,6 +634,23 @@
                 </div>
             </section>
         </main>
+
+        <!-- 유튜브 영상 모달 -->
+        <div id="videoModal" class="video-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="video-wrapper">
+                    <iframe
+                        id="videoFrame"
+                        src=""
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
 
         <script src="script.js"></script>
     </body>

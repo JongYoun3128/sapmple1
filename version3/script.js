@@ -279,3 +279,145 @@ document.querySelectorAll(".workflow-step").forEach((step) => {
     step.style.transition = "all 0.6s ease";
     workflowObserver.observe(step);
 });
+
+// 배너 무한 스크롤 - JavaScript 방식
+const bannerTrack = document.querySelector('.banner-track');
+if (bannerTrack) {
+    const items = bannerTrack.innerHTML;
+    bannerTrack.innerHTML = items + items;
+    
+    bannerTrack.style.animation = 'none';
+    let bannerPosition = 0;
+    
+    function animateBanner() {
+        const firstItem = bannerTrack.querySelector('.banner-item');
+        if (!firstItem) return;
+        
+        const itemWidth = firstItem.offsetWidth + parseFloat(window.getComputedStyle(firstItem).marginLeft) + parseFloat(window.getComputedStyle(firstItem).marginRight);
+        const resetPoint = itemWidth * 4;
+        
+        bannerPosition -= 1;
+        
+        if (Math.abs(bannerPosition) >= resetPoint) {
+            bannerPosition = 0;
+        }
+        
+        bannerTrack.style.transform = `translateX(${bannerPosition}px)`;
+        requestAnimationFrame(animateBanner);
+    }
+    
+    animateBanner();
+}
+
+// 파트너사 무한 스크롤 - JavaScript 방식
+const partnersFlow = document.querySelector('.partners-flow');
+if (partnersFlow) {
+    const boxes = partnersFlow.innerHTML;
+    partnersFlow.innerHTML = boxes + boxes + boxes;
+    
+    partnersFlow.style.animation = 'none';
+    let partnerPosition = 0;
+    
+    function animatePartners() {
+        const firstBox = partnersFlow.querySelector('.partner-box');
+        if (!firstBox) return;
+        
+        const boxWidth = firstBox.offsetWidth + parseFloat(window.getComputedStyle(firstBox).marginLeft) + parseFloat(window.getComputedStyle(firstBox).marginRight);
+        const resetPoint = boxWidth * 4;
+        
+        partnerPosition -= 0.5;
+        
+        if (Math.abs(partnerPosition) >= resetPoint) {
+            partnerPosition = 0;
+        }
+        
+        partnersFlow.style.transform = `translateX(${partnerPosition}px)`;
+        requestAnimationFrame(animatePartners);
+    }
+    
+    animatePartners();
+}
+
+// 유튜브 갤러리 무한 루프
+const galleryRows = document.querySelectorAll('.gallery-row');
+galleryRows.forEach(row => {
+    const cards = row.innerHTML;
+    row.innerHTML = cards + cards + cards;
+    
+    row.style.animation = 'none';
+    let position = 0;
+    const speed = row.classList.contains('row-left') ? -1 : 1;
+    
+    function getCardWidth() {
+        const firstCard = row.querySelector('.thumbnail-card');
+        if (firstCard) {
+            const style = window.getComputedStyle(firstCard);
+            const width = firstCard.offsetWidth;
+            const marginLeft = parseFloat(style.marginLeft);
+            const marginRight = parseFloat(style.marginRight);
+            return width + marginLeft + marginRight;
+        }
+        return 340;
+    }
+    
+    function animate() {
+        const cardWidth = getCardWidth();
+        const resetPoint = cardWidth * 6;
+        
+        position += speed * 1;
+        
+        if (speed < 0) {
+            if (Math.abs(position) >= resetPoint) {
+                position = 0;
+            }
+        } else {
+            if (position >= resetPoint) {
+                position = 0;
+            }
+        }
+        
+        row.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+});
+
+// 유튜브 영상 모달 기능
+const videoModal = document.getElementById('videoModal');
+const videoFrame = document.getElementById('videoFrame');
+const modalClose = document.querySelector('.modal-close');
+const modalOverlay = document.querySelector('.modal-overlay');
+
+document.addEventListener('click', function(e) {
+    const card = e.target.closest('.thumbnail-card');
+    if (card) {
+        e.preventDefault();
+        const videoId = card.getAttribute('data-video-id');
+        const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&rel=0`;
+        videoFrame.src = videoUrl;
+        videoModal.style.display = 'flex';
+        setTimeout(() => {
+            videoModal.classList.add('active');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+    }
+});
+
+function closeVideoModal() {
+    videoModal.classList.remove('active');
+    setTimeout(() => {
+        videoModal.style.display = 'none';
+        videoFrame.src = '';
+        document.body.style.overflow = '';
+    }, 300);
+}
+
+modalClose.addEventListener('click', closeVideoModal);
+modalOverlay.addEventListener('click', closeVideoModal);
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+        closeVideoModal();
+    }
+});
