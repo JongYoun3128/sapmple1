@@ -148,6 +148,70 @@ body {
     100% { transform: translateX(-33.33%); }
 }
 
+/* 파트너사 로고 섹션 */
+.partners-section {
+    background-color: #f8f9fa;
+    padding: 50px 20px;
+    overflow: hidden;
+}
+
+.partners-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.partners-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.partners-track {
+    display: flex;
+    animation: slidePartners 20s linear infinite;
+}
+
+.partner-logo {
+    flex-shrink: 0;
+    width: 200px;
+    height: 100px;
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@keyframes slidePartners {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 /* Sections */
 section {
     padding: 60px 20px;
@@ -630,6 +694,12 @@ section.visible {
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
     }
+
+    .partner-logo {
+        width: 170px;
+        height: 90px;
+        margin: 0 20px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -777,6 +847,18 @@ section.visible {
     .container {
         padding: 0 15px;
     }
+
+    .partners-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .partner-logo {
+        width: 150px;
+        height: 80px;
+        margin: 0 15px;
+        padding: 15px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -803,5 +885,17 @@ section.visible {
     
     .stat-number {
         font-size: 32px;
+    }
+
+    .partners-title {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    .partner-logo {
+        width: 130px;
+        height: 70px;
+        margin: 0 10px;
+        padding: 12px;
     }
 }
