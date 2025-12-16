@@ -157,7 +157,7 @@ body {
 
 /* 파트너 브랜드 섹션 */
 .partners-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: transparent;
     padding: 70px 0;
     overflow: hidden;
 }
@@ -166,9 +166,8 @@ body {
     text-align: center;
     font-size: 32px;
     font-weight: 700;
-    color: #fff;
+    color: #333;
     margin-bottom: 50px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .partners-carousel {
@@ -186,21 +185,19 @@ body {
     flex-shrink: 0;
     width: 180px;
     height: 120px;
-    background: rgba(255, 255, 255, 0.95);
+    background: #fff;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 25px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
 
 .partner-item:hover {
-    transform: scale(1.05) translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 .partner-item img {
@@ -218,6 +215,12 @@ body {
 @keyframes scrollPartners {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .partners-scroll {
+        animation: scrollPartners 13s linear infinite;
+    }
 }
 
 /* Sections */

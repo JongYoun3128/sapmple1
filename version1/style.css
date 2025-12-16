@@ -150,7 +150,7 @@ body {
 
 /* 파트너사 로고 섹션 */
 .partners-section {
-    background-color: #f8f9fa;
+    background-color: transparent;
     padding: 50px 20px;
     overflow: hidden;
 }
@@ -210,6 +210,12 @@ body {
 @keyframes slidePartners {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .partners-track {
+        animation: slidePartners 12s linear infinite;
+    }
 }
 
 /* Sections */
