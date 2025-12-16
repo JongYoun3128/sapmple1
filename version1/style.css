@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f5f5f5;
@@ -63,24 +63,39 @@ body {
 }
 
 @keyframes float1 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(50px, -50px) rotate(180deg); }
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(50px, -50px) rotate(180deg);
+    }
 }
 
 @keyframes float2 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(-40px, 60px) rotate(-180deg); }
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-40px, 60px) rotate(-180deg);
+    }
 }
 
 @keyframes float3 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(60px, -40px) rotate(180deg); }
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(60px, -40px) rotate(180deg);
+    }
 }
 
 /* Header */
 .header {
     background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -144,8 +159,12 @@ body {
 }
 
 @keyframes scrollSlogan {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-33.33%); }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.33%);
+    }
 }
 
 /* 파트너사 로고 섹션 */
@@ -170,7 +189,7 @@ body {
 
 .partners-track {
     display: flex;
-    animation: slidePartners 20s linear infinite;
+    animation: slidePartners 5s linear infinite;
 }
 
 .partner-logo {
@@ -184,13 +203,13 @@ body {
     background: #fff;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .partner-logo:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .partner-logo img {
@@ -208,13 +227,11 @@ body {
 }
 
 @keyframes slidePartners {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-@media (max-width: 768px) {
-    .partners-track {
-        animation: slidePartners 12s linear infinite;
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
     }
 }
 
@@ -274,7 +291,7 @@ section.visible {
 
 .advantage-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
 
@@ -313,7 +330,7 @@ section.visible {
 }
 
 .process-step:not(:last-child)::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 30px;
     top: 70px;
@@ -382,13 +399,18 @@ section.visible {
 }
 
 .package-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(74, 144, 226, 0.1),
+        transparent
+    );
     transition: left 0.5s;
 }
 
@@ -398,7 +420,7 @@ section.visible {
 
 .package-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .package-header {
@@ -450,7 +472,7 @@ section.visible {
 }
 
 .package-features li::before {
-    content: '✓';
+    content: "✓";
     position: absolute;
     left: 0;
     color: #50c878;
@@ -493,7 +515,7 @@ section.visible {
     padding: 35px;
     border-radius: 12px;
     margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .monthly-info h3 {
@@ -515,7 +537,7 @@ section.visible {
 }
 
 .monthly-info li::before {
-    content: '•';
+    content: "•";
     position: absolute;
     left: 0;
     color: #4a90e2;
@@ -535,7 +557,7 @@ section.visible {
     padding: 25px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
 }
 
@@ -695,7 +717,7 @@ section.visible {
     .advantages-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
@@ -712,81 +734,81 @@ section.visible {
     .hero-title {
         font-size: 28px;
     }
-    
+
     .hero-subtitle {
         font-size: 16px;
     }
-    
+
     .section-title {
         font-size: 26px;
     }
-    
+
     .section-subtitle {
         font-size: 14px;
         margin-bottom: 30px;
     }
-    
+
     .advantages-grid {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .advantage-card {
         padding: 25px 20px;
     }
-    
+
     .advantage-icon {
         font-size: 32px;
     }
-    
+
     .advantage-card h3 {
         font-size: 18px;
     }
-    
+
     .advantage-card p {
         font-size: 13px;
     }
-    
+
     .package-card {
         padding: 25px 20px;
         margin-bottom: 20px;
     }
-    
+
     .package-header h3 {
         font-size: 20px;
     }
-    
+
     .package-price {
         font-size: 28px;
     }
-    
+
     .package-features li {
         font-size: 14px;
         padding: 8px 0;
         padding-left: 25px;
     }
-    
+
     .monthly-pricing {
         grid-template-columns: 1fr;
     }
-    
+
     .monthly-info {
         padding: 25px 20px;
     }
-    
+
     .price-item {
         padding: 20px;
     }
-    
+
     .price-amount {
         font-size: 22px;
     }
-    
+
     .process-step {
         flex-direction: column;
         margin-bottom: 30px;
     }
-    
+
     .step-number {
         width: 50px;
         height: 50px;
@@ -794,62 +816,62 @@ section.visible {
         margin-bottom: 15px;
         margin-right: 0;
     }
-    
+
     .step-content h3 {
         font-size: 18px;
     }
-    
+
     .step-content p {
         font-size: 14px;
     }
-    
+
     .process-step:not(:last-child)::after {
         display: none;
     }
-    
+
     .slogan-text {
         font-size: 18px;
     }
-    
+
     .slogan-item {
         padding: 0 25px;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-    
+
     .stat-number {
         font-size: 36px;
     }
-    
+
     .stat-label {
         font-size: 12px;
     }
-    
+
     .options-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .option-item {
         padding: 18px;
     }
-    
+
     .faq-question {
         padding: 15px 18px;
         font-size: 14px;
     }
-    
+
     .faq-answer p {
         padding: 0 18px 15px;
         font-size: 13px;
     }
-    
+
     section {
         padding: 50px 15px;
     }
-    
+
     .container {
         padding: 0 15px;
     }
@@ -871,24 +893,27 @@ section.visible {
     .hero {
         padding: 60px 15px;
     }
-    
+
     .hero-title {
         font-size: 24px;
     }
-    
+
     .logo {
         font-size: 20px;
     }
-    
+
     .section-title {
         font-size: 22px;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr 1fr;
         gap: 15px;
     }
-    
+    .partners-track {
+        display: flex;
+        animation: slidePartners 2s linear infinite;
+    }
     .stat-number {
         font-size: 32px;
     }

@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
     line-height: 1.7;
     color: #2c2c2c;
     background-color: #ffffff;
@@ -151,8 +151,12 @@ body {
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* 파트너 브랜드 섹션 */
@@ -177,7 +181,7 @@ body {
 
 .partners-scroll {
     display: flex;
-    animation: scrollPartners 25s linear infinite;
+    animation: scrollPartners 5s linear infinite;
     gap: 40px;
 }
 
@@ -191,13 +195,13 @@ body {
     align-items: center;
     justify-content: center;
     padding: 25px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .partner-item:hover {
     transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .partner-item img {
@@ -213,13 +217,11 @@ body {
 }
 
 @keyframes scrollPartners {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-@media (max-width: 768px) {
-    .partners-scroll {
-        animation: scrollPartners 13s linear infinite;
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
     }
 }
 
@@ -378,7 +380,7 @@ section.visible {
 }
 
 .package-box::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -395,7 +397,7 @@ section.visible {
 
 .package-box:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     border-color: #2c2c2c;
 }
 
@@ -483,7 +485,7 @@ section.visible {
 }
 
 .features-list-pkg li::before {
-    content: '—';
+    content: "—";
     position: absolute;
     left: 0;
     color: #2c2c2c;
@@ -552,7 +554,7 @@ section.visible {
 }
 
 .monthly-list li::before {
-    content: '→';
+    content: "→";
     position: absolute;
     left: 0;
     color: #2c2c2c;
@@ -730,11 +732,11 @@ section.visible {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .process-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .numbers-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -750,100 +752,100 @@ section.visible {
     .hero-title {
         font-size: 36px;
     }
-    
+
     .section-title {
         font-size: 28px;
     }
-    
+
     .section-description {
         font-size: 14px;
     }
-    
+
     .package-box {
         padding: 30px 22px;
     }
-    
+
     .package-title {
         font-size: 20px;
     }
-    
+
     .price {
         font-size: 26px;
     }
-    
+
     .monthly-main {
         padding: 30px 22px;
     }
-    
+
     .option-row {
         padding: 18px 22px;
         flex-wrap: wrap;
         gap: 8px;
     }
-    
+
     .feature-row {
         flex-direction: column;
         gap: 15px;
         padding: 25px 0;
     }
-    
+
     .feature-number {
         font-size: 32px;
     }
-    
+
     .feature-content h3 {
         font-size: 18px;
     }
-    
+
     .feature-content p {
         font-size: 14px;
     }
-    
+
     .process-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
+
     .process-card {
         padding: 25px 18px;
     }
-    
+
     .process-card h3 {
         font-size: 16px;
     }
-    
+
     .process-card p {
         font-size: 12px;
     }
-    
+
     .number-value {
         font-size: 36px;
     }
-    
+
     .number-label {
         font-size: 12px;
     }
-    
+
     section {
         padding: 60px 0;
     }
-    
+
     .section-header {
         margin-bottom: 35px;
     }
-    
+
     .faq-question span:first-child {
         font-size: 14px;
     }
-    
+
     .faq-answer p {
         font-size: 13px;
     }
-    
+
     .marquee-content span {
         font-size: 14px;
     }
-    
+
     .container {
         padding: 0 15px;
     }
@@ -864,41 +866,45 @@ section.visible {
     .hero {
         padding: 70px 0 60px;
     }
-    
+
     .hero-title {
         font-size: 28px;
     }
-    
+
     .hero-description {
         font-size: 15px;
     }
-    
+
     .logo {
         font-size: 18px;
     }
-    
+
     .section-title {
         font-size: 24px;
     }
-    
+
     .process-grid {
         grid-template-columns: 1fr 1fr;
         gap: 12px;
     }
-    
+
     .process-card {
         padding: 20px 15px;
     }
-    
+    .partners-scroll {
+        display: flex;
+        animation: scrollPartners 2s linear infinite;
+        gap: 40px;
+    }
     .process-icon {
         font-size: 28px;
     }
-    
+
     .numbers-grid {
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
-    
+
     .number-value {
         font-size: 32px;
     }

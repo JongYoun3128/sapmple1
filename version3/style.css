@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
     line-height: 1.6;
     color: #1a1a1a;
     background-color: #ffffff;
@@ -94,7 +94,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .header .container {
@@ -167,8 +167,12 @@ body {
 }
 
 @keyframes bannerScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* 협력 파트너사 섹션 */
@@ -195,7 +199,7 @@ body {
 
 .partners-flow {
     display: flex;
-    animation: flowPartners 22s linear infinite;
+    animation: flowPartners 2s linear infinite;
     gap: 35px;
 }
 
@@ -211,12 +215,12 @@ body {
     justify-content: center;
     padding: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .partner-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .partner-box img {
@@ -232,13 +236,11 @@ body {
 }
 
 @keyframes flowPartners {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-@media (max-width: 768px) {
-    .partners-flow {
-        animation: flowPartners 11s linear infinite;
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
     }
 }
 
@@ -301,7 +303,7 @@ section.visible {
 .benefit-card:hover {
     border-color: #1a1a1a;
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .benefit-header {
@@ -349,7 +351,7 @@ section.visible {
 }
 
 .workflow-step:not(:last-child)::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 30px;
     top: 70px;
@@ -416,7 +418,7 @@ section.visible {
 }
 
 .package-item::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: -100%;
@@ -433,7 +435,7 @@ section.visible {
 .package-item:hover {
     transform: translateX(10px);
     border-color: #1a1a1a;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .package-item.highlight {
@@ -525,7 +527,7 @@ section.visible {
 }
 
 .package-includes li::before {
-    content: '▸';
+    content: "▸";
     position: absolute;
     left: 0;
     color: #1a1a1a;
@@ -672,7 +674,7 @@ section.visible {
 .option-card:hover {
     border-color: #1a1a1a;
     transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .option-title {
@@ -784,11 +786,11 @@ section.visible {
     .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .monthly-container {
         grid-template-columns: 1fr;
         gap: 35px;
@@ -805,114 +807,114 @@ section.visible {
     .hero-title {
         font-size: 32px;
     }
-    
+
     .section-title {
         font-size: 26px;
     }
-    
+
     .section-subtitle {
         font-size: 14px;
         margin-bottom: 35px;
     }
-    
+
     .benefits-grid {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .benefit-card {
         padding: 25px 20px;
     }
-    
+
     .benefit-header h3 {
         font-size: 18px;
     }
-    
+
     .benefit-card p {
         font-size: 13px;
     }
-    
+
     .package-item {
         padding: 28px 22px;
     }
-    
+
     .package-name {
         font-size: 20px;
     }
-    
+
     .package-info {
         flex-direction: column;
         gap: 18px;
     }
-    
+
     .info-value {
         font-size: 22px;
     }
-    
+
     .workflow-step {
         flex-direction: column;
         gap: 15px;
         margin-bottom: 30px;
     }
-    
+
     .step-circle {
         width: 50px;
         height: 50px;
     }
-    
+
     .step-icon {
         font-size: 20px;
     }
-    
+
     .step-info h3 {
         font-size: 18px;
     }
-    
+
     .workflow-step:not(:last-child)::after {
         display: none;
     }
-    
+
     .options-container {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .option-card {
         padding: 20px 15px;
     }
-    
+
     .option-title {
         font-size: 13px;
     }
-    
+
     .option-price {
         font-size: 18px;
     }
-    
+
     .metric-value {
         font-size: 36px;
     }
-    
+
     .metric-label {
         font-size: 12px;
     }
-    
+
     .faq-text {
         font-size: 14px;
     }
-    
+
     .faq-answer p {
         font-size: 13px;
         padding-left: 25px;
     }
-    
+
     section {
         padding: 55px 0;
     }
-    
+
     .container {
         padding: 0 15px;
     }
-    
+
     .banner-item {
         font-size: 13px;
     }
@@ -933,37 +935,37 @@ section.visible {
     .hero {
         padding: 70px 0 60px;
     }
-    
+
     .hero-title {
         font-size: 26px;
     }
-    
+
     .hero-text {
         font-size: 15px;
     }
-    
+
     .logo {
         font-size: 17px;
     }
-    
+
     .section-title {
         font-size: 22px;
     }
-    
+
     .options-container {
         grid-template-columns: 1fr 1fr;
         gap: 12px;
     }
-    
+
     .metrics-grid {
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
-    
+
     .metric-value {
         font-size: 32px;
     }
-    
+
     .pricing-amount {
         font-size: 24px;
     }
